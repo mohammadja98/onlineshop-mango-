@@ -1,0 +1,84 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load static %}
+{% comment %} {% load humanize %} {% endcomment %}
+
+{% block page_title %}{{ category.name }} | Mango{% endblock %}
+
+{% block content %}
+
+<!-- 🟢 Top Header (Breadcrumb) -->
+<div class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-10 mb-10 border-b">
+  <div class="container mx-auto text-right px-4">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+      {{ category.name }}
+    </h1>
+    <p class="text-gray-600 text-sm">
+      {% blocktrans %}محصولات این دسته‌بندی را مرور کنید{% endblocktrans %}
+    </p>
+  </div>
+</div>
+
+<!-- 🟡 Products Grid -->
+<div class="container mx-auto px-4">
+  {% if products %}
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {% for product in products %}
+        <div class="bg-white rounded-2xl shadow hover:shadow-xl overflow-hidden transition transform hover:-translate-y-1">
+          
+          <!-- تصویر محصول -->
+          <a href="{{ product.get_absolute_url }}" class="block relative">
+            {% if product.image %}
+              <img src="{{ product.image.url }}" alt="{{ product.name }}"
+                   class="w-full h-48 object-contain p-4 bg-white">
+            {% else %}
+              <div class="w-full h-48 flex items-center justify-center bg-yellow-50 text-yellow-600 font-bold text-2xl">
+                {{ product.name|first }}
+              </div>
+            {% endif %}
+            {% if product.available %}
+              <span class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded-lg">
+                {% trans "موجود" %}
+              </span>
+            {% else %}
+              <span class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-lg">
+                {% trans "ناموجود" %}
+              </span>
+            {% endif %}
+          </a>
+
+          <!-- اطلاعات محصول -->
+          <div class="p-4 text-right">
+            <h3 class="font-semibold text-gray-800 mb-2 truncate">
+              <a href="{{ product.get_absolute_url }}" class="hover:text-green-600">
+                {{ product.name }}
+              </a>
+            </h3>
+            <p class="text-yellow-700 font-bold mb-3">
+              {{ product.price }} {% trans "تومان" %}
+              {% comment %} {{ product.price|intcomma }} {% trans "تومان" %} {% endcomment %}
+
+            </p>
+
+            <!-- دکمه افزودن به سبد -->
+            <form method="post" action="{% url 'cart:cart_add' product.id %}">
+              {% csrf_token %}
+              <input type="hidden" name="quantity" value="1">
+              <button type="submit"
+                      class="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-2 rounded-lg font-medium hover:from-yellow-500 hover:to-yellow-700 transition"
+                      {% if not product.available %}disabled{% endif %}>
+                {% trans "افزودن به سبد خرید" %}
+              </button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="text-center py-20">
+      <h3 class="text-gray-500 text-lg">{% trans "هیچ محصولی در این دسته‌بندی یافت نشد." %}</h3>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+<!-- Cart Sidebar -->
+<div id="cartSidebar"
+     class="fixed top-0 right-0 h-full w-80 sm:w-96 
+            border-b border-amber-100
+            bg-gradient-to-r from-yellow-100 to-green-100 rounded-tl-3xl
+            transform translate-x-full transition-transform duration-300 z-50 rounded-l-3xl flex flex-col">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-5 py-4 
+              border-b border-amber-100 
+              bg-gradient-to-r from-yellow-100 to-green-100 rounded-tl-3xl">
+    <h2 class="text-lg font-bold text-gray-800">🛒 سبد خرید منگو</h2>
+    <button onclick="toggleCartSidebar()" 
+            class="text-gray-500 hover:text-red-500 text-2xl leading-none">&times;</button>
+  </div>
+
+  <!-- Content -->
+  <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4 bg-white/90">
+    {% if cart_items %}
+      {% for item in cart_items %}
+        <div class="flex items-center justify-between p-3 rounded-2xl 
+                    bg-gradient-to-r from-yellow-50 to-green-50 border border-amber-100 shadow-sm">
+          <div class="flex items-center space-x-3 space-x-reverse">
+            {% if item.product.image %}
+              <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                   class="h-12 w-12 rounded-xl object-cover border border-amber-200">
+            {% else %}
+              <div class="h-12 w-12 rounded-xl bg-amber-200 flex items-center justify-center text-white font-bold">
+                {{ item.product.name|first }}
+              </div>
+            {% endif %}
+            <div>
+              <p class="font-semibold text-gray-800">{{ item.product.name }}</p>
+              <p class="text-sm text-gray-600">تعداد: {{ item.quantity }}</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <p class="text-gray-600 text-sm">{{ item.product.price }} تومان</p>
+            <p class="text-amber-600 font-bold">{{ item.total_price }} تومان</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-center text-gray-500 py-20">🍋 سبد خرید شما خالی است</p>
+    {% endif %}
+  </div>
+
+  <!-- Footer -->
+  <div class="border-t border-amber-100 bg-gradient-to-r from-yellow-100 to-green-100 px-5 py-4 rounded-bl-3xl">
+    <div class="flex justify-between items-center font-bold text-gray-800 mb-4">
+      <span>جمع کل:</span>
+      <span class="text-amber-600 text-xl">{{ cart_total }} تومان</span>
+    </div>
+    <a href="{% url 'cart:cart_detail' %}"
+       class="block w-full text-center bg-yellow-500 text-white py-3 rounded-xl hover:bg-amber-500 transition">
+      مشاهده سبد خرید
+    </a>
+    <a href="{% url 'orders:order_create' %}"
+       class="block w-full text-center bg-green-600 text-white py-3 rounded-xl hover:bg-green-600 transition mt-3">
+      ادامه به پرداخت
+    </a>
+  </div>
+</div>
+
+<!-- Backdrop -->
+<div id="cartBackdrop"
+     class="fixed inset-0 bg-black/50 hidden z-40 transition-opacity duration-300"
+     onclick="toggleCartSidebar()"></div>
+
+<!-- JS -->
+<script>
+function toggleCartSidebar() {
+  const sidebar = document.getElementById("cartSidebar");
+  const backdrop = document.getElementById("cartBackdrop");
+  const isOpen = !sidebar.classList.contains("translate-x-full");
+
+  if (isOpen) {
+    sidebar.classList.add("translate-x-full");
+    backdrop.classList.add("hidden");
+  } else {
+    sidebar.classList.remove("translate-x-full");
+    backdrop.classList.remove("hidden");
+  }
+}
+</script>

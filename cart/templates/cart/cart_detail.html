@@ -1,0 +1,99 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block page_title %}{% trans "سبد خرید" %} | Mango{% endblock %}
+
+{% block content %}
+<div class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-10 mb-10">
+  <div class="container mx-auto text-right px-4">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-800">{% trans "سبد خرید شما" %}</h1>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 py-10">
+  {% if cart_items %}
+    <div class="overflow-x-auto bg-white shadow rounded-2xl">
+      <table class="w-full text-right border-collapse">
+        <thead class="bg-yellow-200">
+          <tr>
+            <th class="p-4">{% trans "محصول" %}</th>
+            <th class="p-4">{% trans "تعداد" %}</th>
+            <th class="p-4">{% trans "قیمت واحد" %}</th>
+            <th class="p-4">{% trans "قیمت کل" %}</th>
+            <th class="p-4">{% trans "عملیات" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+            <tr class="border-b hover:bg-yellow-50">
+              <!-- محصول -->
+              <td class="p-4 font-semibold text-gray-800">
+                <a href="{{ item.product.get_absolute_url }}" class="hover:text-green-600">
+                  {{ item.product.name }}
+                </a>
+              </td>
+
+              <!-- تعداد -->
+              <td class="p-4">
+                <form method="post" action="{% url 'cart:cart_add' item.product.id %}" class="flex items-center">
+                  {% csrf_token %}
+                  <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                         class="w-16 border rounded text-center mx-2">
+                  <input type="hidden" name="inplace" value="True">
+                  <button type="submit"
+                          class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition">
+                    {% trans "به‌روزرسانی" %}
+                  </button>
+                </form>
+              </td>
+
+              <!-- قیمت واحد -->
+              <td class="p-4 text-gray-700">
+                {{ item.product.price }} {% trans "تومان" %}
+              </td>
+
+              <!-- قیمت کل -->
+              <td class="p-4 font-bold text-yellow-700">
+                {{ item.total_price }} {% trans "تومان" %}
+              </td>
+
+              <!-- حذف -->
+              <td class="p-4">
+                <form method="post" action="{% url 'cart:cart_remove' item.product.id %}">
+                  {% csrf_token %}
+                  <button type="submit"
+                          class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
+                    {% trans "حذف" %}
+                  </button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- مجموع کل -->
+    <div class="flex justify-between items-center mt-8 flex-col md:flex-row gap-4">
+      <div class="text-xl font-bold text-gray-800">
+        {% trans "جمع کل:" %}
+        <span class="text-yellow-700">{{ total }} {% trans "تومان" %}</span>
+      </div>
+      <a href="{% url 'orders:order_create' %}"
+         class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 px-6 rounded-lg font-medium hover:from-yellow-500 hover:to-yellow-700 transition">
+        {% trans "ادامه به پرداخت" %}
+      </a>
+    </div>
+
+  {% else %}
+    <!-- سبد خالی -->
+    <div class="text-center py-20">
+      <h3 class="text-gray-500 text-lg mb-6">{% trans "سبد خرید شما خالی است!" %}</h3>
+      <a href="{% url 'shop:product_list' %}"
+         class="bg-yellow-500 text-white px-6 py-3 rounded-lg shadow hover:bg-yellow-600 transition">
+        {% trans "بازگشت به فروشگاه" %}
+      </a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
