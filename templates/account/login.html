@@ -2,22 +2,34 @@
 
 {% load crispy_forms_tags %}
 
-
 {% block title %}Login | Mango{% endblock %}
 
 {% block content %}
-<section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-yellow-400 via-yellow-500 to-green-400">
-  <div class="bg-gradient-to-r from-yellow-400 to-green-400 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full max-w-md">
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-8 mb-10">
+  <div class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full max-w-md">
+    
     <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Sign In to Mango</h2>
-    <form method="post" class="space-y-">
+    
+    {% if form.errors %}
+      <div class="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
+        لطفاً خطاهای زیر را بررسی کنید.
+      </div>
+    {% endif %}
+
+    <form method="post" action="" class="space-y-4 text-right">
       {% csrf_token %}
       {{ form|crispy }}
-      <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white py-2 rounded-xl font-semibold transition">
-        Sign In
+      <button type="submit" class="w-full bg-gradient-to-r from-green-400 to-green-600 hover:bg-green-700 text-white py-2 rounded-xl font-semibold transition">
+        ورود
       </button>
     </form>
+
+
     <p class="text-sm text-gray-600 text-center mt-4">
-      Don’t have an account? <a href="{% url 'account_signup' %}" class="text-yellow-600 font-medium hover:underline">Sign Up</a>
+      Don’t have an account? 
+      <a href="{% url 'account_signup' %}" class="text-yellow-600 font-medium hover:underline">
+        Sign Up
+      </a>
     </p>
   </div>
 </section>

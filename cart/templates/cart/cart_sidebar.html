@@ -52,11 +52,11 @@
       <span class="text-amber-600 text-xl">{{ cart_total }} تومان</span>
     </div>
     <a href="{% url 'cart:cart_detail' %}"
-       class="block w-full text-center bg-yellow-500 text-white py-3 rounded-xl hover:bg-amber-500 transition">
+       class="block w-full text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-semibold  py-3 rounded-xl hover:bg-amber-500 transition">
       مشاهده سبد خرید
     </a>
     <a href="{% url 'orders:order_create' %}"
-       class="block w-full text-center bg-green-600 text-white py-3 rounded-xl hover:bg-green-600 transition mt-3">
+       class="block w-full text-center bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold py-3 rounded-xl hover:bg-green-600 transition mt-3">
       ادامه به پرداخت
     </a>
   </div>

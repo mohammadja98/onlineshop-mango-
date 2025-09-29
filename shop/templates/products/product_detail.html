@@ -1,19 +1,21 @@
 <!-- detail_view.html -->
 {% extends "_base.html" %}
-{% block title %}{{ product.name }} | Mango Shop{% endblock %}
+{% block title %}{{ product.name }} | فروشگاه Mango{% endblock %}
 
 {% block content %}
 <section class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-green-400 text-white py-16">
   <div class="container mx-auto text-center">
     <h1 class="text-4xl font-bold mb-4">{{ product.name }}</h1>
-    <p class="text-lg">Discover the details of our mango-inspired collection.</p>
+    <p class="text-lg">جزئیات محصول انتخابی شما</p>
   </div>
 </section>
 
-<section class="container mx-auto px-6 py-16 grid gap-12 md:grid-cols-2">
+<section class="container mx-auto px-6 py-16 grid gap-12 md:grid-cols-2 text-right">
   <!-- Product Image -->
   <div>
-    {% comment %} <img src="{{ product.image.url }}" alt="{{ product.name }}" class="rounded-2xl shadow-lg w-full object-cover"> {% endcomment %}
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}" class="rounded-2xl shadow-lg w-full object-cover">
+    {% endif %}
   </div>
 
   <!-- Product Details -->
@@ -21,50 +23,55 @@
     <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ product.name }}</h2>
     <p class="text-gray-600 mb-6 leading-relaxed">{{ product.description }}</p>
 
-    <div class="flex items-center mb-6">
-      <span class="text-3xl font-extrabold text-yellow-600">${{ product.price }}</span>
+    <div class="flex flex-row-reverse items-center mb-6">
+      <span class="text-3xl font-extrabold text-yellow-600">{{ product.price }} تومان</span>
       {% if product.old_price %}
-      <span class="ml-4 line-through text-gray-400">${{ product.old_price }}</span>
+      <span class="mr-4 line-through text-gray-400">{{ product.old_price }} تومان</span>
       {% endif %}
     </div>
 
     <!-- Add to Cart Button -->
-    <form action="{% url  'cart:cart_add' product.id %}" method="post">
+    <form action="{% url 'cart:cart_add' product.id %}" method="post" 
+          class="flex items-center space-x-3 space-x-reverse max-w-md">
       {% csrf_token %}
       {{ form.quantity }}
       {{ form.replace }}
-      <button type="submit" class="bg-yellow-500 text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-yellow-600 transition">
-        🛒 Add to Cart
+      <button type="submit" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-700 transition">
+        🛒 افزودن به سبد خرید
       </button>
     </form>
 
     <!-- Extra Info -->
     <div class="mt-10 border-t pt-6">
-      <h3 class="text-lg font-semibold mb-2">Product Details</h3>
+      <h3 class="text-lg font-semibold mb-2">مشخصات محصول</h3>
       <ul class="list-disc list-inside text-gray-600 space-y-1">
-        <li>Category: {{ product.category }}</li>
-        <li>Stock: {{ product.stock }}</li>
-        <li>SKU: {{ product.sku }}</li>
+        <li>دسته‌بندی: {{ product.category }}</li>
+        <li>موجودی: {{ product.stock }}</li>
+        <li>کد محصول (SKU): {{ product.sku }}</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- Related Products -->
-<section class="container mx-auto px-6 py-12">
-  <h3 class="text-2xl font-bold text-gray-800 mb-8">Related Products</h3>
+<section class="container mx-auto px-6 py-12 text-right">
+  <h3 class="text-2xl font-bold text-gray-800 mb-8">محصولات مشابه</h3>
   <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     {% for related in related_products %}
     <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
-      <img src="{{ related.image.url }}" alt="{{ related.name }}" class="h-40 w-full object-cover">
+      {% if related.image %}
+        <img src="{{ related.image.url }}" alt="{{ related.name }}" class="h-40 w-full object-cover">
+      {% endif %}
       <div class="p-4">
         <h4 class="text-lg font-semibold mb-2">{{ related.name }}</h4>
-        <p class="text-gray-600 text-sm mb-3">${{ related.price }}</p>
-        <a href="{% url 'product_detail' related.id %}" class="text-yellow-600 font-semibold hover:underline">View →</a>
+        <p class="text-gray-600 text-sm mb-3">{{ related.price }} تومان</p>
+        <a href="{% url 'product_detail' related.id %}" class="text-yellow-600 font-semibold hover:underline">
+          مشاهده →
+        </a>
       </div>
     </div>
     {% empty %}
-    <p class="col-span-full text-center text-gray-500">No related products found.</p>
+    <p class="col-span-full text-center text-gray-500">هیچ محصول مشابهی یافت نشد.</p>
     {% endfor %}
   </div>
 </section>

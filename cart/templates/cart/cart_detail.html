@@ -4,96 +4,100 @@
 {% block page_title %}{% trans "سبد خرید" %} | Mango{% endblock %}
 
 {% block content %}
-<div class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-10 mb-10">
+<div class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-8 mb-10">
   <div class="container mx-auto text-right px-4">
-    <h1 class="text-3xl md:text-4xl font-bold text-gray-800">{% trans "سبد خرید شما" %}</h1>
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-800">{% trans "سبد خرید شما" %}</h1>
   </div>
 </div>
 
-<div class="container mx-auto px-4 py-10">
-  {% if cart_items %}
-    <div class="overflow-x-auto bg-white shadow rounded-2xl">
-      <table class="w-full text-right border-collapse">
-        <thead class="bg-yellow-200">
-          <tr>
-            <th class="p-4">{% trans "محصول" %}</th>
-            <th class="p-4">{% trans "تعداد" %}</th>
-            <th class="p-4">{% trans "قیمت واحد" %}</th>
-            <th class="p-4">{% trans "قیمت کل" %}</th>
-            <th class="p-4">{% trans "عملیات" %}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in cart_items %}
-            <tr class="border-b hover:bg-yellow-50">
-              <!-- محصول -->
-              <td class="p-4 font-semibold text-gray-800">
-                <a href="{{ item.product.get_absolute_url }}" class="hover:text-green-600">
-                  {{ item.product.name }}
-                </a>
-              </td>
+<div class="container mx-auto px-4 pb-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+  <!-- محصولات -->
+  <div class="lg:col-span-2 space-y-6">
+    {% if cart_items %}
+      {% for item in cart_items %}
+        <div class="flex flex-col md:flex-row items-center md:items-start justify-between bg-white rounded-2xl shadow p-5 hover:shadow-lg transition">
+          <!-- عکس -->
+          <div class="w-full md:w-1/4 flex justify-center mb-4 md:mb-0">
+            {% if item.product.image %}
+              <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                   class="h-28 w-28 object-cover rounded-xl border">
+            {% endif %}
+          </div>
 
-              <!-- تعداد -->
-              <td class="p-4">
-                <form method="post" action="{% url 'cart:cart_add' item.product.id %}" class="flex items-center">
-                  {% csrf_token %}
-                  <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
-                         class="w-16 border rounded text-center mx-2">
-                  <input type="hidden" name="inplace" value="True">
-                  <button type="submit"
-                          class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition">
-                    {% trans "به‌روزرسانی" %}
-                  </button>
-                </form>
-              </td>
+          <!-- مشخصات -->
+          <div class="flex-1 md:px-6 text-right space-y-2 w-full">
+            <a href="{{ item.product.get_absolute_url }}"
+               class="font-semibold text-gray-800 hover:text-green-600 transition block ">
+              {{ item.product.name }}
+            </a>
+            <p class="text-sm text-gray-500">{% trans "کد محصول" %}: {{ item.product.id }}</p>
 
-              <!-- قیمت واحد -->
-              <td class="p-4 text-gray-700">
-                {{ item.product.price }} {% trans "تومان" %}
-              </td>
+            <!-- تعداد + حذف -->
+            <div class="flex items-center gap-3 mt-3">
+              <form method="post" action="{% url 'cart:cart_add' item.product.id %}" class="flex items-center gap-2">
+                {% csrf_token %}
+                <input type="hidden" name="inplace" value="True">
+                <button type="submit" name="quantity" value="{{ item.quantity|add:-1 }}"
+                        class="h-8 w-8 flex items-center justify-center rounded-full border hover:bg-gray-100">−</button>
+                <span class="w-10 text-center font-medium">{{ item.quantity }}</span>
+                <button type="submit" name="quantity" value="{{ item.quantity|add:1 }}"
+                        class="h-8 w-8 flex items-center justify-center rounded-full border hover:bg-gray-100">+</button>
+              </form>
 
-              <!-- قیمت کل -->
-              <td class="p-4 font-bold text-yellow-700">
-                {{ item.total_price }} {% trans "تومان" %}
-              </td>
+              <form method="post" action="{% url 'cart:cart_remove' item.product.id %}">
+                {% csrf_token %}
+                <button type="submit" class="text-red-500 hover:text-red-700 text-xl">🗑️</button>
+              </form>
+            </div>
+          </div>
 
-              <!-- حذف -->
-              <td class="p-4">
-                <form method="post" action="{% url 'cart:cart_remove' item.product.id %}">
-                  {% csrf_token %}
-                  <button type="submit"
-                          class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
-                    {% trans "حذف" %}
-                  </button>
-                </form>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-
-    <!-- مجموع کل -->
-    <div class="flex justify-between items-center mt-8 flex-col md:flex-row gap-4">
-      <div class="text-xl font-bold text-gray-800">
-        {% trans "جمع کل:" %}
-        <span class="text-yellow-700">{{ total }} {% trans "تومان" %}</span>
+          <!-- قیمت‌ها -->
+          <div class="text-left mt-4 md:mt-0 space-y-1">
+            <p class="text-sm text-gray-500">{% trans "قیمت واحد" %}:</p>
+            <p class="font-medium text-gray-700">{{ item.product.price }} {% trans "تومان" %}</p>
+            <p class="text-sm text-gray-500 mt-2">{% trans "قیمت کل" %}:</p>
+            <p class="font-bold text-amber-600">{{ item.total_price }} {% trans "تومان" %}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="text-center py-20 bg-white shadow rounded-xl">
+        <h3 class="text-gray-500 text-lg mb-6">{% trans "سبد خرید شما خالی است!" %}</h3>
+        <a href="{% url 'shop:product_list' %}"
+           class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-yellow-600 transition">
+          {% trans "بازگشت به فروشگاه" %}
+        </a>
       </div>
-      <a href="{% url 'orders:order_create' %}"
-         class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 px-6 rounded-lg font-medium hover:from-yellow-500 hover:to-yellow-700 transition">
-        {% trans "ادامه به پرداخت" %}
-      </a>
+    {% endif %}
+  </div>
+
+  <!-- جمع کل -->
+  <div class="bg-white shadow rounded-2xl p-6 h-fit sticky top-24">
+    <h2 class="text-lg font-bold text-gray-800 mb-4">{% trans "خلاصه سفارش" %}</h2>
+
+    <div class="flex justify-between mb-3">
+      <span class="text-gray-600">{% trans "قیمت کالاها" %}</span>
+      <span class="font-medium">{{ total }} {% trans "تومان" %}</span>
     </div>
 
-  {% else %}
-    <!-- سبد خالی -->
-    <div class="text-center py-20">
-      <h3 class="text-gray-500 text-lg mb-6">{% trans "سبد خرید شما خالی است!" %}</h3>
-      <a href="{% url 'shop:product_list' %}"
-         class="bg-yellow-500 text-white px-6 py-3 rounded-lg shadow hover:bg-yellow-600 transition">
-        {% trans "بازگشت به فروشگاه" %}
-      </a>
+    <div class="flex justify-between mb-3">
+      <span class="text-green-600">{% trans "تخفیف شما" %}</span>
+      <span class="font-medium text-green-600">۰ {% trans "تومان" %}</span>
     </div>
-  {% endif %}
+
+    <div class="border-t pt-3 flex justify-between text-lg font-bold">
+      <span>{% trans "جمع کل" %}</span>
+      <span class="text-amber-600">{{ total }} {% trans "تومان" %}</span>
+    </div>
+
+    <a href="{% url 'orders:order_create' %}"
+       class="mt-6 block w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 rounded-xl font-semibold text-center hover:from-yellow-500 hover:to-yellow-700 transition">
+      {% trans "تایید و تکمیل سفارش" %}
+    </a>
+
+    <p class="text-xs text-gray-400 mt-3">
+      {% trans "هزینه این سفارش هنوز پرداخت نشده و در صورت اتمام موجودی، کالاها از سبد خرید شما حذف می‌شوند." %}
+    </p>
+  </div>
 </div>
 {% endblock %}
