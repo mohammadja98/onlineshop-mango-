@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-06 00:08+0330\n"
+"PO-Revision-Date: 2025-10-05 23:40+0330\n"
+"Last-Translator: mango mangoo <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\shop\models.py:36
+msgid "Product Image"
+msgstr "تصویر محصول"
+
+#: .\shop\models.py:54
+msgid "Very Bad"
+msgstr "خیلی بد"
+
+#: .\shop\models.py:55
+msgid "Bad"
+msgstr " بد"
+
+#: .\shop\models.py:56
+msgid "Normal"
+msgstr "معمولی"
+
+#: .\shop\models.py:57
+msgid "Good"
+msgstr "خوب"
+
+#: .\shop\models.py:58
+msgid "Perfect"
+msgstr "عالی"
+
+#: .\shop\models.py:62
+msgid "comment author"
+msgstr "نویسنده"
+
+#: .\shop\models.py:63
+msgid "comment text"
+msgstr "متن"
+
+#: .\shop\templates\products\category_detail.html:19
+msgid "Browse products in this category"
+msgstr "محصولات این دسته را مرور کنید"
+
+#: .\shop\templates\products\category_detail.html:43
+msgid "exist"
+msgstr "موجود"
+
+#: .\shop\templates\products\category_detail.html:47
+msgid "non-existent"
+msgstr "ناموجود"
+
+#: .\shop\templates\products\category_detail.html:60
+#: .\shop\templates\products\product_detail.html:32
+#: .\shop\templates\products\product_detail.html:34
+#: .\shop\templates\products\product_detail.html:72
+#: .\shop\templates\products\product_list.html:27
+msgid "$"
+msgstr "تومان"
+
+#: .\shop\templates\products\category_detail.html:71
+#: .\shop\templates\products\product_detail.html:45
+msgid "add to cart"
+msgstr "اضافه به سبد خرید"
+
+#: .\shop\templates\products\category_detail.html:80
+msgid "No products were found in this category."
+msgstr "هیچ محصولی در این دسته بندی یافت نشد"
+
+#: .\shop\templates\products\category_list.html:11
+msgid "Category"
+msgstr "دسته بندی"
+
+#: .\shop\templates\products\category_list.html:35
+msgid "No categories available yet."
+msgstr "هنوز هیچ دسته بندی موجود نیست"
+
+#: .\shop\templates\products\product_detail.html:8
+msgid "shop Mango"
+msgstr "فروشگاه منگو"
+
+#: .\shop\templates\products\product_detail.html:14
+msgid "Details of your selected product"
+msgstr "جزئیات محصول انتخابی شما"
+
+#: .\shop\templates\products\product_detail.html:51
+msgid "product info"
+msgstr "مشخصات محصول"
+
+#: .\shop\templates\products\product_detail.html:53
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\shop\templates\products\product_detail.html:54
+msgid "inventory"
+msgstr "موجودی"
+
+#: .\shop\templates\products\product_detail.html:55
+msgid "product code"
+msgstr "کد محصول"
+
+#: .\shop\templates\products\product_detail.html:63
+msgid "similar products"
+msgstr "محصولات مشابه"
+
+#: .\shop\templates\products\product_detail.html:74
+#: .\shop\templates\products\product_list.html:28
+msgid "View"
+msgstr "مشاهده"
+
+#: .\shop\templates\products\product_detail.html:79
+msgid "No similar products found"
+msgstr "محصولات مشابه پیدا نشد"
+
+#: .\shop\templates\products\product_list.html:13
+msgid "Our Products"
+msgstr "محصولات ما"
+
+#: .\shop\templates\products\product_list.html:14
+msgid "Browse our fresh collection inspired by mango colors & minimal design"
+msgstr ""
+"مجموعه جدید ما را که با الهام از رنگ‌های انبه و طراحی مینیمالیستی ساخته شده "
+"است، مرور کنید."
+
+#: .\shop\templates\products\product_list.html:33
+msgid "No products available"
+msgstr "هیچ محصولی موجود نیست"

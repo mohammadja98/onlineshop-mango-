@@ -1,44 +1,32 @@
-
-<!-- home.html -->
 {% extends "_base.html" %}
-{% block title %}Home | Mango Shop{% endblock %}
+{% load i18n %}
 
+{% block title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
-<section class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-green-400 text-white py-20">
-    <div class="container mx-auto text-center">
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-r from-green-400 via-yellow-300 to-yellow-400 text-gray-900 py-32 text-center">
+    <div class="container mx-auto relative z-10">
         {% if user.is_authenticated %}
-            <h1 class="text-5xl font-bold mb-6">Welcome to Mango Shop {{user.username}}</h1>
+            <h1 class="text-6xl font-extrabold mb-6 tracking-tight leading-tight drop-shadow-lg">
+                {% trans "Welcome to Mango Shop" %} {{ user.username }}
+            </h1>
         {% else %}
-            <h1 class="text-5xl font-bold mb-6">Welcome to Mango Shop </h1>
+            <h1 class="text-6xl font-extrabold mb-6 tracking-tight leading-tight drop-shadow-lg">
+                {% trans "Welcome to Mango Shop" %}
+            </h1>
         {% endif %}
-        <p class="text-lg mb-8 max-w-2xl mx-auto">Discover a fresh shopping experience with modern design, minimal aesthetics, and vibrant mango-inspired colors.</p>
-        <a href="{% url 'shop:product_list' %}"
-            class="bg-white text-yellow-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-yellow-100 transition">
-            Shop Now
+
+        <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90 leading-relaxed">
+            {% trans "Experience a modern shopping journey with our shop." %}
+        </p>
+
+        <a href="{% url 'shop:product_list' %}" 
+           class="bg-white text-green-600 px-10 py-4 rounded-full font-semibold shadow-lg hover:bg-yellow-100 hover:shadow-xl transition transform hover:scale-105">
+            {% trans "Shop Now" %}
         </a>
     </div>
 </section>
 
 
-<section class="container mx-auto px-6 py-16 grid gap-8 md:grid-cols-3">
-<div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition">
-<img src="/static/images/mango1.jpg" alt="Product 1" class="rounded-xl mb-4">
-<h3 class="text-xl font-semibold mb-2">Mango Collection</h3>
-<p class="text-gray-600 mb-4">Bright & fresh products inspired by nature.</p>
-<a href="{{product_list}}" class="text-yellow-600 font-semibold hover:underline">Explore →</a>
-</div>
-<div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition">
-<img src="/static/images/mango2.jpg" alt="Product 2" class="rounded-xl mb-4">
-<h3 class="text-xl font-semibold mb-2">Modern Essentials</h3>
-<p class="text-gray-600 mb-4">Minimal & modern styles for everyday life.</p>
-<a href="/shop/" class="text-yellow-600 font-semibold hover:underline">Explore →</a>
-</div>
-<div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition">
-<img src="/static/images/mango3.jpg" alt="Product 3" class="rounded-xl mb-4">
-<h3 class="text-xl font-semibold mb-2">Eco Friendly</h3>
-<p class="text-gray-600 mb-4">Sustainable & eco-friendly shopping choices.</p>
-<a href="/shop/" class="text-yellow-600 font-semibold hover:underline">Explore →</a>
-</div>
-</section>
-{% endblock %} 
+{% endblock %}

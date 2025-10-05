@@ -38,17 +38,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
+
     'allauth',
     'allauth.account',
     'crispy_forms',
     'crispy_bootstrap5',
     'ckeditor',
+    'rosetta',
 
     'accounts',
     'shop',
     'cart',
     'orders',
     'pages',
+    'persian_translate',
 ]
 SITE_ID = 1
 
@@ -126,13 +131,22 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
 
-TIME_ZONE = 'UTC'
+
+TIME_ZONE = 'Asia/Tehran'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
 
 USE_I18N = True
 
 USE_TZ = True
+LOCALE_PATHS = [
+    BASE_DIR / "locale", 
+]
 
 
 # Static files (CSS, JavaScript, Images)

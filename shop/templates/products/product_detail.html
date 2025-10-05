@@ -1,12 +1,17 @@
 <!-- detail_view.html -->
 {% extends "_base.html" %}
-{% block title %}{{ product.name }} | فروشگاه Mango{% endblock %}
+
+{% load i18n %}
+{% load humanize %}
+{% load persian_translation_tags %}
+
+{% block title %}{{ product.name }} | {% trans "shop Mango" %} {% endblock %}
 
 {% block content %}
-<section class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-green-400 text-white py-16">
+<section class="bg-gradient-to-r from-green-400 via-yellow-300 to-yellow-400  text-gray-900 py-16">
   <div class="container mx-auto text-center">
     <h1 class="text-4xl font-bold mb-4">{{ product.name }}</h1>
-    <p class="text-lg">جزئیات محصول انتخابی شما</p>
+    <p class="text-lg">{% trans "Details of your selected product" %}</p>
   </div>
 </section>
 
@@ -24,9 +29,9 @@
     <p class="text-gray-600 mb-6 leading-relaxed">{{ product.description }}</p>
 
     <div class="flex flex-row-reverse items-center mb-6">
-      <span class="text-3xl font-extrabold text-yellow-600">{{ product.price }} تومان</span>
+      <span class="text-3xl font-extrabold text-yellow-600">{{ product.price|intcomma:False|translate_number }} {% trans "$" %}</span>
       {% if product.old_price %}
-      <span class="mr-4 line-through text-gray-400">{{ product.old_price }} تومان</span>
+      <span class="mr-4 line-through text-gray-400">{{ product.old_price|intcomma:False|translate_number }} {% trans "$" %}</span>
       {% endif %}
     </div>
 
@@ -37,17 +42,17 @@
       {{ form.quantity }}
       {{ form.replace }}
       <button type="submit" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-700 transition">
-        🛒 افزودن به سبد خرید
+        🛒 {% trans "add to cart" %}
       </button>
     </form>
 
     <!-- Extra Info -->
     <div class="mt-10 border-t pt-6">
-      <h3 class="text-lg font-semibold mb-2">مشخصات محصول</h3>
+      <h3 class="text-lg font-semibold mb-2"> {% trans "product info" %}</h3>
       <ul class="list-disc list-inside text-gray-600 space-y-1">
-        <li>دسته‌بندی: {{ product.category }}</li>
-        <li>موجودی: {{ product.stock }}</li>
-        <li>کد محصول (SKU): {{ product.sku }}</li>
+        <li>{% trans "category" %}: {{ product.category }}</li>
+        <li>{% trans "inventory" %}: {{ product.stock }}</li>
+        <li>{% trans "product code" %}(SKU): {{ product.sku }}</li>
       </ul>
     </div>
   </div>
@@ -55,7 +60,7 @@
 
 <!-- Related Products -->
 <section class="container mx-auto px-6 py-12 text-right">
-  <h3 class="text-2xl font-bold text-gray-800 mb-8">محصولات مشابه</h3>
+  <h3 class="text-2xl font-bold text-gray-800 mb-8">{% trans "similar products" %} </h3>
   <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     {% for related in related_products %}
     <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
@@ -64,14 +69,14 @@
       {% endif %}
       <div class="p-4">
         <h4 class="text-lg font-semibold mb-2">{{ related.name }}</h4>
-        <p class="text-gray-600 text-sm mb-3">{{ related.price }} تومان</p>
+        <p class="text-gray-600 text-sm mb-3">{{ related.price|intcomma:False|translate_number }} {% trans "$" %}</p>
         <a href="{% url 'product_detail' related.id %}" class="text-yellow-600 font-semibold hover:underline">
-          مشاهده →
+          {% trans "View" %} →
         </a>
       </div>
     </div>
     {% empty %}
-    <p class="col-span-full text-center text-gray-500">هیچ محصول مشابهی یافت نشد.</p>
+    <p class="col-span-full text-center text-gray-500">{% trans "No similar products found" %}.</p>
     {% endfor %}
   </div>
 </section>
