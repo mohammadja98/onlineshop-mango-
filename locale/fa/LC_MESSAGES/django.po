@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 00:18+0330\n"
+"POT-Creation-Date: 2025-10-14 00:29+0330\n"
 "PO-Revision-Date: 2025-10-06 00:30+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,39 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\templates\footer.html:7
+#: .\templates\footer.html:8
 msgid "A minimalist and modern online shopping experience"
 msgstr "تجربه‌ای مینیمال و مدرن از خرید آنلاین."
 
-#: .\templates\footer.html:12
+#: .\templates\footer.html:13
 msgid "Quick Links"
 msgstr "لینک های سریع"
 
-#: .\templates\footer.html:14
+#: .\templates\footer.html:15
 msgid "shop"
 msgstr "فروشگاه"
 
-#: .\templates\footer.html:15
+#: .\templates\footer.html:16
 msgid "about us"
 msgstr "درباره ما"
 
-#: .\templates\footer.html:16
+#: .\templates\footer.html:17
 msgid "conact with us"
 msgstr "تماس با ما"
 
-#: .\templates\footer.html:21
-msgid "keep in touch with us"
-msgstr "با ما در ارتباط باشید"
-
-#: .\templates\footer.html:23
-msgid "your email"
-msgstr "ایمیل شما"
-
-#: .\templates\footer.html:26
-msgid "share"
-msgstr "اشتراک"
-
-#: .\templates\footer.html:32
+#: .\templates\footer.html:22
 msgid "Mango Store. All rights reserved."
 msgstr "فروشگاه منگو. همه حقوق محفوظ است"
 
@@ -71,31 +59,19 @@ msgstr "با فروشگاه ما، خریدی مدرن و خاطره‌انگی�
 msgid "Shop Now"
 msgstr "خرید"
 
-#: .\templates\topheader.html:21
-msgid "cart"
-msgstr "سبد خرید"
-
-#: .\templates\topheader.html:38
-msgid "category"
-msgstr "دسته بندی"
-
-#: .\templates\topheader.html:49
+#: .\templates\topheader.html:48
 msgid "hello"
 msgstr "سلام"
 
-#: .\templates\topheader.html:51
-msgid "User account"
-msgstr "حساب کاربری"
-
-#: .\templates\topheader.html:62
+#: .\templates\topheader.html:59
 msgid "logout"
 msgstr "خروج"
 
-#: .\templates\topheader.html:64
+#: .\templates\topheader.html:61
 msgid "login"
 msgstr "ورود"
 
-#: .\templates\topheader.html:65
+#: .\templates\topheader.html:62
 msgid "signup"
 msgstr "ثبت نام"
 
@@ -213,8 +189,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:297
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
-" hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:309
@@ -433,8 +409,8 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
@@ -613,8 +589,7 @@ msgid "Many-to-many relationship"
 msgstr ""
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the
-#. label
+#. characters will prevent the default label_suffix to be appended to the label
 #: .\venv\Lib\site-packages\django\forms\boundfield.py:185
 msgid ":?.!"
 msgstr ""
@@ -664,8 +639,7 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:644
 #, python-format
-msgid ""
-"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -772,8 +746,7 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1450
-msgid ""
-"Select a valid choice. That choice is not one of the available choices."
+msgid "Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1594
@@ -1233,10 +1206,10 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:45
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
-" including the “Referrer-Policy: no-referrer” header, please remove them. "
-"The CSRF protection requires the “Referer” header to do strict referer "
-"checking. If you’re concerned about privacy, use alternatives like <a "
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 
@@ -1347,10 +1320,10 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
 #, python-format
 msgid ""
-"You are seeing this page because <a "
-"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-"and you have not configured any URLs."
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
@@ -1376,3 +1349,48 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#, fuzzy
+#~| msgid "about us"
+#~ msgid "about mango"
+#~ msgstr "درباره ما"
+
+#, fuzzy
+#~| msgid "your email"
+#~ msgid "our goal"
+#~ msgstr "ایمیل شما"
+
+#, fuzzy
+#~| msgid "A minimalist and modern online shopping experience"
+#~ msgid "Creating a simple and enjoyable online shopping experience"
+#~ msgstr "تجربه‌ای مینیمال و مدرن از خرید آنلاین."
+
+#, fuzzy
+#~| msgid "your email"
+#~ msgid "email]"
+#~ msgstr "ایمیل شما"
+
+#, fuzzy
+#~| msgid "your email"
+#~ msgid "your message"
+#~ msgstr "ایمیل شما"
+
+#, fuzzy
+#~| msgid "your email"
+#~ msgid "email"
+#~ msgstr "ایمیل شما"
+
+#~ msgid "keep in touch with us"
+#~ msgstr "با ما در ارتباط باشید"
+
+#~ msgid "share"
+#~ msgstr "اشتراک"
+
+#~ msgid "cart"
+#~ msgstr "سبد خرید"
+
+#~ msgid "category"
+#~ msgstr "دسته بندی"
+
+#~ msgid "User account"
+#~ msgstr "حساب کاربری"

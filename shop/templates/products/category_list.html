@@ -4,8 +4,7 @@
 
 {% block title %}Categories | Mango{% endblock %}
 
-{% block content %}
-<section class="py-16 bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100">
+{% block content %}<section class="py-16 bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100">
   <div class="container mx-auto text-center">
     <h2 class="text-4xl font-bold text-gray-800 mb-12">
       <span class="text-yellow-600">{% trans "Category" %}</span>
@@ -13,21 +12,24 @@
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {% for category in categories %}
-        <a href="{{ category.get_absolute_url}}"
-           class="group bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
-          
+        <a href="{{ category.get_absolute_url }}"
+           class="group bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col items-center justify-between h-full">
+
           <!-- Category Image -->
           {% if category.image %}
-            <img src="{{ category.image.url }}" alt="{{ category.name }}"
-                 class="mx-auto h-20 w-20 object-contain mb-6 transition group-hover:scale-110">
+            <div class="w-[250px] h-[180px] rounded-2xl overflow-hidden mb-6">
+              <img src="{{ category.image.url }}" 
+                   alt="{{ category.name }}" 
+                   class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+            </div>
           {% else %}
-            <div class="mx-auto h-20 w-20 flex items-center justify-center mb-6 rounded-full bg-yellow-200 text-yellow-700 font-bold text-xl">
+            <div class="w-[250px] h-[180px] flex items-center justify-center mb-6 rounded-2xl bg-yellow-200 text-yellow-700 font-bold text-3xl">
               {{ category.name|first }}
             </div>
           {% endif %}
 
           <!-- Category Name -->
-          <p class="text-lg font-semibold text-gray-800 group-hover:text-green-600">
+          <p class="text-lg font-semibold text-gray-800 group-hover:text-green-600 mt-auto">
             {{ category.name }}
           </p>
         </a>
@@ -37,4 +39,5 @@
     </div>
   </div>
 </section>
+
 {% endblock %}

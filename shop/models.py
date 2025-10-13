@@ -9,6 +9,8 @@ from django.utils.translation import gettext_lazy as _
 class Category(models.Model):
     name = models.CharField(max_length=150, unique=True)
     description = RichTextField()    
+    image = models.ImageField(verbose_name=_('Category Image'), upload_to='category/category_cover/', blank=True, )
+
     def __str__(self):
         return self.name
     

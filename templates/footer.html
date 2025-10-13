@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 <footer class="bg-gray-900 text-gray-300 mt-12">
   <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
     <div>
@@ -11,21 +12,10 @@
     <div>
       <h3 class="text-lg font-semibold text-white mb-4"> {% trans "Quick Links" %}</h3>
       <ul class="space-y-2">
-        <li><a href="/shop/" class="hover:text-white">{% trans "shop" %}</a></li>
-        <li><a href="/about/" class="hover:text-white"> {% trans "about us" %}</a></li>
-        <li><a href="/contact/" class="hover:text-white">  {% trans "conact with us" %}</a></li>
+        <li><a href="{% url 'shop:product_list' %}" class="hover:text-white">{% trans "shop" %}</a></li>
+        <li><a href="{% url 'pages:about' %}" class="hover:text-white"> {% trans "about us" %}</a></li>
+        <li><a href="{% url 'pages:contact' %}" class="hover:text-white">  {% trans "conact with us" %}</a></li>
       </ul>
-    </div>
-
-    <div>
-    <h3 class="text-lg font-semibold text-white mb-4">{% trans "keep in touch with us" %}</h3>
-    <form class="flex">
-        <input type="email" placeholder={% trans "your email" %}
-            class="w-full p-2 rounded-r-lg focus:outline-none text-gray-900">
-        <button class="bg-yellow-500 px-4 py-2 rounded-l-lg text-white hover:bg-yellow-600">
-        {% trans "share" %}
-        </button>
-    </form>
     </div>
 
   <div class="border-t border-gray-700 text-center py-4 text-sm">

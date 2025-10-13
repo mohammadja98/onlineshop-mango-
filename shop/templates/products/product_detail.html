@@ -17,16 +17,22 @@
 
 <section class="container mx-auto px-6 py-16 grid gap-12 md:grid-cols-2 text-right">
   <!-- Product Image -->
-  <div>
-    {% if product.image %}
-      <img src="{{ product.image.url }}" alt="{{ product.name }}" class="rounded-2xl shadow-lg w-full object-cover">
-    {% endif %}
-  </div>
+    <div class="flex justify-center items-center">
+      {% if product.image %}
+        <img 
+          src="{{ product.image.url }}"
+          alt="{{ product.name }}" 
+          class="rounded-3xl shadow-lg object-cover ml-[-100px]"
+          style="width: 400px; height: 400px;"
+        >
+      {% endif %}
+    </div>
+
 
   <!-- Product Details -->
   <div class="flex flex-col justify-center">
     <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ product.name }}</h2>
-    <p class="text-gray-600 mb-6 leading-relaxed">{{ product.description }}</p>
+    <p class="text-gray-600 mb-6 leading-relaxed">{{ product.description|safe }}</p>
 
     <div class="flex flex-row-reverse items-center mb-6">
       <span class="text-3xl font-extrabold text-yellow-600">{{ product.price|intcomma:False|translate_number }} {% trans "$" %}</span>
@@ -36,15 +42,32 @@
     </div>
 
     <!-- Add to Cart Button -->
-    <form action="{% url 'cart:cart_add' product.id %}" method="post" 
-          class="flex items-center space-x-3 space-x-reverse max-w-md">
-      {% csrf_token %}
-      {{ form.quantity }}
-      {{ form.replace }}
+    <div x-data="{ quantity: 1 }" class="flex flex-col gap-3 mt-6">
+      <form method="post" action="{% url 'cart:cart_add' product.id %}" class="flex items-center gap-3">
+        {% csrf_token %}
+        <input type="hidden" name="quantity" :value="quantity">
+
+        <!-- Decrease Quantity -->
+        <button type="button"
+                @click="if (quantity > 1) quantity--"
+                class="h-10 w-10 flex items-center justify-center rounded-full border text-lg hover:bg-gray-100 select-none">−</button>
+
+        <!-- Quantity Display -->
+        <span class="w-12 text-center font-medium text-lg" x-text="quantity"></span>
+
+        <!-- Increase Quantity -->
+        <button type="button"
+                @click="quantity++"
+                class="h-10 w-10 flex items-center justify-center rounded-full border text-lg hover:bg-gray-100 select-none">+</button>
+
+        <!-- Add to Cart Button -->
       <button type="submit" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-700 transition">
         🛒 {% trans "add to cart" %}
       </button>
-    </form>
+      </form>
+    </div>
+
+
 
     <!-- Extra Info -->
     <div class="mt-10 border-t pt-6">

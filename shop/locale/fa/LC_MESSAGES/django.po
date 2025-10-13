@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 00:08+0330\n"
-"PO-Revision-Date: 2025-10-05 23:40+0330\n"
+"POT-Creation-Date: 2025-10-14 00:24+0330\n"
+"PO-Revision-Date: 2025-10-13 22:05+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,35 +19,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\shop\models.py:36
+#: .\shop\models.py:12
+#, fuzzy
+#| msgid "Category"
+msgid "Category Image"
+msgstr "دسته بندی"
+
+#: .\shop\models.py:38
 msgid "Product Image"
 msgstr "تصویر محصول"
 
-#: .\shop\models.py:54
+#: .\shop\models.py:56
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\shop\models.py:55
+#: .\shop\models.py:57
 msgid "Bad"
 msgstr " بد"
 
-#: .\shop\models.py:56
+#: .\shop\models.py:58
 msgid "Normal"
 msgstr "معمولی"
 
-#: .\shop\models.py:57
+#: .\shop\models.py:59
 msgid "Good"
 msgstr "خوب"
 
-#: .\shop\models.py:58
+#: .\shop\models.py:60
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\shop\models.py:62
+#: .\shop\models.py:64
 msgid "comment author"
 msgstr "نویسنده"
 
-#: .\shop\models.py:63
+#: .\shop\models.py:65
 msgid "comment text"
 msgstr "متن"
 
@@ -64,27 +70,27 @@ msgid "non-existent"
 msgstr "ناموجود"
 
 #: .\shop\templates\products\category_detail.html:60
-#: .\shop\templates\products\product_detail.html:32
-#: .\shop\templates\products\product_detail.html:34
-#: .\shop\templates\products\product_detail.html:72
-#: .\shop\templates\products\product_list.html:27
+#: .\shop\templates\products\product_detail.html:38
+#: .\shop\templates\products\product_detail.html:40
+#: .\shop\templates\products\product_detail.html:95
+#: .\shop\templates\products\product_list.html:26
 msgid "$"
 msgstr "تومان"
 
 #: .\shop\templates\products\category_detail.html:71
-#: .\shop\templates\products\product_detail.html:45
+#: .\shop\templates\products\product_detail.html:65
 msgid "add to cart"
-msgstr "اضافه به سبد خرید"
+msgstr "افزودن به سبد خرید"
 
 #: .\shop\templates\products\category_detail.html:80
 msgid "No products were found in this category."
 msgstr "هیچ محصولی در این دسته بندی یافت نشد"
 
-#: .\shop\templates\products\category_list.html:11
+#: .\shop\templates\products\category_list.html:10
 msgid "Category"
 msgstr "دسته بندی"
 
-#: .\shop\templates\products\category_list.html:35
+#: .\shop\templates\products\category_list.html:37
 msgid "No categories available yet."
 msgstr "هنوز هیچ دسته بندی موجود نیست"
 
@@ -96,32 +102,32 @@ msgstr "فروشگاه منگو"
 msgid "Details of your selected product"
 msgstr "جزئیات محصول انتخابی شما"
 
-#: .\shop\templates\products\product_detail.html:51
+#: .\shop\templates\products\product_detail.html:74
 msgid "product info"
 msgstr "مشخصات محصول"
 
-#: .\shop\templates\products\product_detail.html:53
+#: .\shop\templates\products\product_detail.html:76
 msgid "category"
 msgstr "دسته بندی"
 
-#: .\shop\templates\products\product_detail.html:54
+#: .\shop\templates\products\product_detail.html:77
 msgid "inventory"
 msgstr "موجودی"
 
-#: .\shop\templates\products\product_detail.html:55
+#: .\shop\templates\products\product_detail.html:78
 msgid "product code"
 msgstr "کد محصول"
 
-#: .\shop\templates\products\product_detail.html:63
+#: .\shop\templates\products\product_detail.html:86
 msgid "similar products"
 msgstr "محصولات مشابه"
 
-#: .\shop\templates\products\product_detail.html:74
-#: .\shop\templates\products\product_list.html:28
+#: .\shop\templates\products\product_detail.html:97
+#: .\shop\templates\products\product_list.html:27
 msgid "View"
 msgstr "مشاهده"
 
-#: .\shop\templates\products\product_detail.html:79
+#: .\shop\templates\products\product_detail.html:102
 msgid "No similar products found"
 msgstr "محصولات مشابه پیدا نشد"
 
@@ -135,6 +141,6 @@ msgstr ""
 "مجموعه جدید ما را که با الهام از رنگ‌های انبه و طراحی مینیمالیستی ساخته شده "
 "است، مرور کنید."
 
-#: .\shop\templates\products\product_list.html:33
+#: .\shop\templates\products\product_list.html:32
 msgid "No products available"
 msgstr "هیچ محصولی موجود نیست"
