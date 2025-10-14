@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-06 00:08+0330\n"
-"PO-Revision-Date: 2025-10-05 17:59+0330\n"
+"PO-Revision-Date: 2025-10-14 21:40+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -92,8 +92,8 @@ msgid ""
 "the cost of this order has not yet been paid for, and the items will be "
 "removed from your shopping cart if they are out of stock"
 msgstr ""
-"هزینه این سفارش هنوز پرداخت نشده است و در صورت عدم موجودی، اقلام از سبد خرید "
-"شما حذف خواهند شد."
+"هزینه این سفارش هنوز پرداخت نشده است و در صورت عدم موجودی، اقلام از سبد خرید"
+" شما حذف خواهند شد."
 
 #: .\cart\templates\cart\cart_sidebar.html:16
 msgid "Mango cart"
@@ -101,7 +101,7 @@ msgstr "سبد خرید منگو"
 
 #: .\cart\templates\cart\cart_sidebar.html:38
 msgid "quantity"
-msgstr ""
+msgstr "تعداد"
 
 #: .\cart\templates\cart\cart_sidebar.html:48
 msgid "Your cart is empty"

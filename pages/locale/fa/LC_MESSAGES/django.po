@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 00:29+0330\n"
-"PO-Revision-Date: 2025-10-14 00:38+0330\n"
+"POT-Creation-Date: 2025-10-14 23:52+0330\n"
+"PO-Revision-Date: 2025-10-14 23:52+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,11 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\pages\templates\pages\aboutus.html:8
+#: .\forms.py:12
+#| msgid "full name"
+msgid "Full name"
+msgstr "نام و نام خانوادگی:"
+
+#: .\forms.py:13
+#| msgid "address"
+msgid "Email address"
+msgstr "آدرس:"
+
+#: .\forms.py:14
+#| msgid "send message"
+msgid "Message"
+msgstr "پیام"
+
+#: .\templates\pages\aboutus.html:8
 msgid "about mango"
 msgstr "درباره منگو"
 
-#: .\pages\templates\pages\aboutus.html:10
+#: .\templates\pages\aboutus.html:10
 msgid ""
 "Mango is a modern and minimal online store We strive to provide you with a "
 "beautiful, simple and fast online shopping experience"
@@ -31,7 +46,7 @@ msgstr ""
 "منگو یک فروشگاه آنلاین مدرن و مینیمال است، ما تلاش می‌کنیم تجربه‌ای زیبا، "
 "ساده و سریع از خرید اینترنتی برای شما فراهم کنیم."
 
-#: .\pages\templates\pages\aboutus.html:14
+#: .\templates\pages\aboutus.html:14
 msgid ""
 "Our team is dedicated to serving our customers with a focus on user-friendly"
 " design, quality products, and reliable service."
@@ -39,36 +54,35 @@ msgstr ""
 "تیم ما با تمرکز بر طراحی کاربرپسند، محصولات باکیفیت و خدمات قابل "
 "اعتماد،درخدمت مشتریان است."
 
-#: .\pages\templates\pages\aboutus.html:19
+#: .\templates\pages\aboutus.html:19
 msgid "our goal"
 msgstr "هدف ما"
 
-#: .\pages\templates\pages\aboutus.html:20
+#: .\templates\pages\aboutus.html:20
 msgid "Creating a simple and enjoyable online shopping experience"
 msgstr "خلق تجربه خرید آنلاین ساده و لذت‌بخش."
 
-#: .\pages\templates\pages\aboutus.html:23
+#: .\templates\pages\aboutus.html:23
 msgid "values"
 msgstr "ارزش ها"
 
-#: .\pages\templates\pages\aboutus.html:24
+#: .\templates\pages\aboutus.html:24
 msgid "Honesty, quality, respect for the customer"
 msgstr "صداقت، کیفیت، احترام به مشتری."
 
-#: .\pages\templates\pages\aboutus.html:27
+#: .\templates\pages\aboutus.html:27
 msgid "inspiring"
 msgstr "الهام بخش"
 
-#: .\pages\templates\pages\aboutus.html:28
+#: .\templates\pages\aboutus.html:28
 msgid "Nature, warm colors and minimalist design"
 msgstr "طبیعت، رنگ‌های گرم و طراحی مینیمال"
 
-#: .\pages\templates\pages\contact.html:4
-#: .\pages\templates\pages\contact.html:9
-msgid "conact with us"
+#: .\templates\pages\contact.html:5 .\templates\pages\contact.html:11
+msgid "contact with us"
 msgstr "تماس با ما"
 
-#: .\pages\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:14
 msgid ""
 "If you have any questions, suggestions, or requests, please contact us via "
 "the form below or contact information."
@@ -76,42 +90,39 @@ msgstr ""
 "اگر سوالی، پیشنهادی یا درخواستی دارید، از طریق فرم زیر یا اطلاعات تماس با ما"
 " در ارتباط باشید."
 
-#: .\pages\templates\pages\contact.html:20
-msgid "full name"
-msgstr "نام و نام خانوادگی:"
-
-#: .\pages\templates\pages\contact.html:24
-msgid "email]"
-msgstr "ایمیل:"
-
-#: .\pages\templates\pages\contact.html:28
-msgid "your message"
-msgstr "پیام شما:"
-
-#: .\pages\templates\pages\contact.html:32
+#: .\templates\pages\contact.html:23
 msgid "send message"
 msgstr "فرستادن پیام"
 
-#: .\pages\templates\pages\contact.html:37
-msgid "connection way"
-msgstr "راه های ارتباطی"
+#: .\templates\pages\contact.html:28
+msgid "contact info"
+msgstr "اطلاعات تماس"
 
-#: .\pages\templates\pages\contact.html:38
+#: .\templates\pages\contact.html:29
 msgid "We are always responsive to you."
 msgstr "ما همیشه پاسخگوی شما هستیم"
 
-#: .\pages\templates\pages\contact.html:41
+#: .\templates\pages\contact.html:32
 msgid "tel"
 msgstr "تلفن"
 
-#: .\pages\templates\pages\contact.html:46
+#: .\templates\pages\contact.html:37
 msgid "email"
 msgstr "ایمیل"
 
-#: .\pages\templates\pages\contact.html:51
+#: .\templates\pages\contact.html:42
 msgid "address"
 msgstr "آدرس"
 
-#: .\pages\templates\pages\contact.html:52
+#: .\templates\pages\contact.html:43
 msgid "iran"
 msgstr "ایران"
+
+#~ msgid "email]"
+#~ msgstr "ایمیل:"
+
+#~ msgid "your message"
+#~ msgstr "پیام شما:"
+
+#~ msgid "connection way"
+#~ msgstr "راه های ارتباطی"

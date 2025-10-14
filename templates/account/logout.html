@@ -1,20 +1,21 @@
 {% extends "_base.html" %}
-{% block title %}خروج | Mango{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "logout" %}{% endblock %}
 
 {% block content %}
 <section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-8 mb-10">
   <div class="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full max-w-md text-center">
     
-    <h2 class="text-2xl font-bold text-gray-800 mb-6">آیا مطمئنید که می‌خواهید خارج شوید؟</h2>
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">{% trans "are you sure to logout?" %}</h2>
     
     <form method="post" action="">
       {% csrf_token %}
       <button type="submit" class="w-full bg-gradient-to-r from-red-400 to-red-600 hover:bg-red-600 text-white py-2 rounded-xl font-semibold transition mb-4">
-        بله، خارج شو
+        {% trans "yes, please logout" %}
       </button>
     </form>
 
-    <a href="/" class="text-gray-600 hover:text-gray-800 font-medium">انصراف و بازگشت به صفحه اصلی</a>
+    <a href="/" class="text-gray-600 hover:text-gray-800 font-medium">{% trans "Cancel and return to the home page" %}</a>
   </div>
 </section>
 {% endblock %}

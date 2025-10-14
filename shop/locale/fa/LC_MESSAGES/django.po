@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 00:24+0330\n"
-"PO-Revision-Date: 2025-10-13 22:05+0330\n"
+"POT-Creation-Date: 2025-10-14 22:13+0330\n"
+"PO-Revision-Date: 2025-10-14 22:06+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,10 +20,8 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: .\shop\models.py:12
-#, fuzzy
-#| msgid "Category"
 msgid "Category Image"
-msgstr "دسته بندی"
+msgstr "عکس دسته بندی"
 
 #: .\shop\models.py:38
 msgid "Product Image"

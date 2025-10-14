@@ -1,40 +1,31 @@
 {% extends "_base.html" %}
 {% load crispy_forms_tags %}
 {% load i18n %}
-{% block title %} {% trans "conact with us" %} {% endblock %}
+
+{% block title %}{% trans "contact with us" %}{% endblock %}
 
 {% block content %}
-<section class="py-16 bg-gradient-to-r from-green-100 to-yellow-100 text-right">
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 py-8 mb-10">
   <div class="container mx-auto px-6 max-w-5xl">
-    <h1 class="text-4xl font-extrabold text-gray-800 mb-6">{% trans "conact with us" %}</h1>
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-6">
+      {% trans "contact with us" %}
+    </h1>
     <p class="text-gray-700 leading-relaxed text-lg mb-10">
-        {% trans "If you have any questions, suggestions, or requests, please contact us via the form below or contact information." %}
+      {% trans "If you have any questions, suggestions, or requests, please contact us via the form below or contact information." %}
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <form class="bg-white shadow-lg rounded-2xl p-6 space-y-5">
+      <form method="POST" class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full max-w-md">
         {% csrf_token %}
         {{ form|crispy }}
-
-        <div>
-          <label class="block text-gray-700 mb-1"> {% trans "full name" %}  </label>
-          <input type="text" class="w-full border p-3 rounded-lg focus:outline-none focus:ring focus:ring-green-300">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-1">{% trans "email]" %}</label>
-          <input type="email" class="w-full border p-3 rounded-lg focus:outline-none focus:ring focus:ring-green-300">
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-1">{% trans "your message" %} </label>
-          <textarea rows="4" class="w-full border p-3 rounded-lg focus:outline-none focus:ring focus:ring-green-300"></textarea>
-        </div>
-        <button class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-3 rounded-lg shadow hover:from-yellow-600 hover:to-yellow-700 transition">
-          {% trans "send message" %} 
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-xl font-semibold transition">
+          {% trans "send message" %}
         </button>
       </form>
 
-      <div class="bg-white shadow-lg rounded-2xl p-6 space-y-6">
-        <h3 class="text-2xl font-bold text-gray-800">{% trans "connection way" %}</h3>
+      <div class="bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 backdrop-blur-md shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h3 class="text-2xl font-bold text-gray-800">{% trans "contact info" %}</h3>
         <p class="text-gray-600">{% trans "We are always responsive to you." %} ❤️</p>
 
         <div>

@@ -5,7 +5,7 @@
 {% load humanize %}
 {% load persian_translation_tags %}
 
-{% block title %}{{ product.name }} | {% trans "shop Mango" %} {% endblock %}
+{% block title %}{{ product.name }} {% endblock %}
 
 {% block content %}
 <section class="bg-gradient-to-r from-green-400 via-yellow-300 to-yellow-400  text-gray-900 py-16">
@@ -75,7 +75,7 @@
       <ul class="list-disc list-inside text-gray-600 space-y-1">
         <li>{% trans "category" %}: {{ product.category }}</li>
         <li>{% trans "inventory" %}: {{ product.stock }}</li>
-        <li>{% trans "product code" %}(SKU): {{ product.sku }}</li>
+        <li>{% trans "product code" %}(SKU): {{ product.id }}</li>
       </ul>
     </div>
   </div>
