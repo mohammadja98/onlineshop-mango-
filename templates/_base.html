@@ -6,7 +6,37 @@
 <title>{% block title %}Mango Shop{% endblock %}</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-r from-yellow-100 to-green-100 text-gray-800 flex flex-col min-h-screen">
+{% if messages %}
+  <div id="messages-container" class="fixed top-4 right-4 space-y-2 z-50">
+    {% for message in messages %}
+      <div class="message-item px-5 py-3 rounded-2xl shadow-md text-gray-800 font-medium
+                  bg-gradient-to-r from-green-200 via-yellow-100 to-yellow-200
+                  border border-yellow-300/50
+                  transition-all duration-700 transform opacity-100 scale-100
+                  {% if message.tags == 'error' %} from-red-200 via-pink-100 to-red-200 border border-red-300/50 {% endif %}
+                  {% if message.tags == 'warning' %} from-yellow-200 via-orange-100 to-yellow-200 border border-orange-300/50 {% endif %}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    // حذف پیام‌ها بعد از ۳ ثانیه
+    setTimeout(() => {
+      const messages = document.querySelectorAll('.message-item');
+      messages.forEach((msg) => {
+        msg.style.opacity = '0';
+        msg.style.transform = 'scale(0.95)';
+        msg.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      });
+      setTimeout(() => {
+        const container = document.getElementById("messages-container");
+        if (container) container.remove();
+      }, 800);
+    }, 1000);
+  </script>
+{% endif %}
+
 {% include "topheader.html" %}
 
 

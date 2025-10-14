@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 00:08+0330\n"
-"PO-Revision-Date: 2025-10-05 17:50+0330\n"
-"Last-Translator:   <>\n"
+"POT-Creation-Date: 2025-10-15 00:51+0330\n"
+"PO-Revision-Date: 2025-10-15 01:01+0330\n"
+"Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,91 +19,108 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\orders\models.py:11
+#: .\models.py:11
 msgid "Pending"
 msgstr "در انتظار"
 
-#: .\orders\models.py:12
+#: .\models.py:12
 msgid "Paid"
 msgstr "پرداخت شده"
 
-#: .\orders\models.py:13
+#: .\models.py:13
 msgid "Shipped"
 msgstr "ارسال شد"
 
-#: .\orders\models.py:14
+#: .\models.py:14
 msgid "Delivered"
 msgstr "تحویل داده شد"
 
-#: .\orders\models.py:15
+#: .\models.py:15
 msgid "Cancelled"
 msgstr "لغو شد"
 
-#: .\orders\models.py:20
+#: .\models.py:20
 msgid "First Name"
 msgstr "نام"
 
-#: .\orders\models.py:21
+#: .\models.py:21
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: .\orders\models.py:22
+#: .\models.py:22
 msgid "Phone Number"
 msgstr "شماره تماس"
 
-#: .\orders\models.py:23
+#: .\models.py:23
 msgid "Address"
 msgstr "آدرس"
 
-#: .\orders\templates\orders\order_create.html:7
+#: .\templates\orders\order_create.html:7
 msgid "Order completion"
 msgstr "تکمیل سفارش"
 
-#: .\orders\templates\orders\order_create.html:15
+#: .\templates\orders\order_create.html:15
 msgid "completion"
 msgstr "تکمیل"
 
-#: .\orders\templates\orders\order_create.html:15
+#: .\templates\orders\order_create.html:15
 msgid "Order"
 msgstr "سفارش"
 
-#: .\orders\templates\orders\order_create.html:17
+#: .\templates\orders\order_create.html:17
 msgid "Check your information and finalize your order"
 msgstr "اطلاعت خود را بررسی و سفارش خود را نهایی کنید"
 
-#: .\orders\templates\orders\order_create.html:23
+#: .\templates\orders\order_create.html:23
 msgid "Customer information"
 msgstr "اطلاعات مشتری"
 
-#: .\orders\templates\orders\order_create.html:37
+#: .\templates\orders\order_create.html:37
 msgid "finalize order"
 msgstr "نهایی کردن سفارش"
 
-#: .\orders\templates\orders\order_create.html:44
+#: .\templates\orders\order_create.html:44
 msgid "Your cart"
 msgstr "سبد خرید شما"
 
-#: .\orders\templates\orders\order_create.html:57
+#: .\templates\orders\order_create.html:57
 msgid "quantity"
 msgstr "تعداد"
 
-#: .\orders\templates\orders\order_create.html:61
-#: .\orders\templates\orders\order_create.html:70
+#: .\templates\orders\order_create.html:61
+#: .\templates\orders\order_create.html:70
 msgid "$"
 msgstr "تومان"
 
-#: .\orders\templates\orders\order_create.html:69
+#: .\templates\orders\order_create.html:69
 msgid "sum total"
 msgstr "جمع کل"
 
-#: .\orders\templates\orders\order_create.html:75
+#: .\templates\orders\order_create.html:75
 msgid "payment method"
 msgstr "روش پرداخت"
 
-#: .\orders\templates\orders\order_create.html:78
+#: .\templates\orders\order_create.html:78
 msgid "Online payment(zarinpal)"
 msgstr "پرداخت آنلاین (زرین پال)"
 
-#: .\orders\templates\orders\order_create.html:82
+#: .\templates\orders\order_create.html:82
 msgid "Your cart is empty"
 msgstr "سبد خرید شما خالی است"
+
+#: .\views.py:22 .\views.py:30
+#| msgid "Your cart is empty"
+msgid "your cart is empty"
+msgstr "سبد خرید شما خالی است"
+
+#: .\views.py:25
+msgid "cart not found"
+msgstr "سبد خرید پیدا نشد"
+
+#: .\views.py:67
+msgid "order sucsessful registered ✅"
+msgstr "سفارش با موفقیت ثبت شد✅"
+
+#: .\views.py:70
+msgid "The order form is invalid. Please try again."
+msgstr "فرم سفارش نامعتبر است. لطفاً دوباره تلاش کنید."

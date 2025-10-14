@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 00:08+0330\n"
+"POT-Creation-Date: 2025-10-15 00:36+0330\n"
 "PO-Revision-Date: 2025-10-14 21:40+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,126 +19,121 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\cart\cart.py:37
+#: .\cart.py:37
 msgid "Product successfully added to cart"
 msgstr "محصول با موفقیت به سبد خرید اضافه شد"
 
-#: .\cart\cart.py:49
+#: .\cart.py:49
 msgid "Product successfully removed from cart"
 msgstr "محصول با موفقیت از سبد خرید حذف شد"
 
-#: .\cart\templates\cart\cart_detail.html:7
+#: .\templates\cart\cart_detail.html:7
 msgid "cart"
 msgstr "سبد خرید"
 
-#: .\cart\templates\cart\cart_detail.html:12
+#: .\templates\cart\cart_detail.html:12
 msgid "your cart  "
 msgstr "سبد خرید شما"
 
-#: .\cart\templates\cart\cart_detail.html:36
+#: .\templates\cart\cart_detail.html:36
 msgid "product code"
 msgstr "کد محصول"
 
-#: .\cart\templates\cart\cart_detail.html:59
+#: .\templates\cart\cart_detail.html:59
 msgid "unit price"
 msgstr "قیمت واحد"
 
-#: .\cart\templates\cart\cart_detail.html:60
-#: .\cart\templates\cart\cart_detail.html:62
-#: .\cart\templates\cart\cart_detail.html:83
-#: .\cart\templates\cart\cart_detail.html:88
-#: .\cart\templates\cart\cart_detail.html:93
-#: .\cart\templates\cart\cart_sidebar.html:42
-#: .\cart\templates\cart\cart_sidebar.html:43
-#: .\cart\templates\cart\cart_sidebar.html:56
+#: .\templates\cart\cart_detail.html:60 .\templates\cart\cart_detail.html:62
+#: .\templates\cart\cart_detail.html:83 .\templates\cart\cart_detail.html:88
+#: .\templates\cart\cart_detail.html:93 .\templates\cart\cart_sidebar.html:42
+#: .\templates\cart\cart_sidebar.html:43 .\templates\cart\cart_sidebar.html:56
 msgid "$"
 msgstr "تومان"
 
-#: .\cart\templates\cart\cart_detail.html:61
+#: .\templates\cart\cart_detail.html:61
 msgid "total price "
 msgstr "قیمت کل"
 
-#: .\cart\templates\cart\cart_detail.html:68
+#: .\templates\cart\cart_detail.html:68
 msgid "your cart is empty"
 msgstr "سبد خرید شما خالی است"
 
-#: .\cart\templates\cart\cart_detail.html:71
+#: .\templates\cart\cart_detail.html:71
 msgid "back to shop"
 msgstr "برگشت به فروشگاه"
 
-#: .\cart\templates\cart\cart_detail.html:79
+#: .\templates\cart\cart_detail.html:79
 msgid "order summary"
 msgstr "خلاصه سفارش"
 
-#: .\cart\templates\cart\cart_detail.html:82
+#: .\templates\cart\cart_detail.html:82
 msgid "products price"
 msgstr "قیمت محصولات"
 
-#: .\cart\templates\cart\cart_detail.html:87
+#: .\templates\cart\cart_detail.html:87
 msgid "your discount"
 msgstr "تخفیف شما"
 
-#: .\cart\templates\cart\cart_detail.html:92
-#: .\cart\templates\cart\cart_sidebar.html:55
+#: .\templates\cart\cart_detail.html:92 .\templates\cart\cart_sidebar.html:55
 msgid "sum total"
 msgstr "جمع کل"
 
-#: .\cart\templates\cart\cart_detail.html:98
+#: .\templates\cart\cart_detail.html:98
 msgid "comfirm and complete the order"
 msgstr "تایید و تکمیل سفازش"
 
-#: .\cart\templates\cart\cart_detail.html:102
+#: .\templates\cart\cart_detail.html:102
 msgid ""
 "the cost of this order has not yet been paid for, and the items will be "
 "removed from your shopping cart if they are out of stock"
 msgstr ""
-"هزینه این سفارش هنوز پرداخت نشده است و در صورت عدم موجودی، اقلام از سبد خرید"
-" شما حذف خواهند شد."
+"هزینه این سفارش هنوز پرداخت نشده است و در صورت عدم موجودی، اقلام از سبد خرید "
+"شما حذف خواهند شد."
 
-#: .\cart\templates\cart\cart_sidebar.html:16
+#: .\templates\cart\cart_sidebar.html:16
 msgid "Mango cart"
 msgstr "سبد خرید منگو"
 
-#: .\cart\templates\cart\cart_sidebar.html:38
+#: .\templates\cart\cart_sidebar.html:38
 msgid "quantity"
 msgstr "تعداد"
 
-#: .\cart\templates\cart\cart_sidebar.html:48
+#: .\templates\cart\cart_sidebar.html:48
 msgid "Your cart is empty"
 msgstr "سبد خرید شما خالی است"
 
-#: .\cart\templates\cart\cart_sidebar.html:60
+#: .\templates\cart\cart_sidebar.html:60
 msgid "View cart"
 msgstr "نمایش سبد خرید"
 
-#: .\cart\templates\cart\cart_sidebar.html:64
+#: .\templates\cart\cart_sidebar.html:64
 msgid "Continue to payment"
 msgstr "ادامه به پرداخت"
 
-#: .\cart\views.py:60
+#: .\views.py:60
 msgid "Product added to your account cart"
 msgstr "محصول به سبد خرید حساب شما اضافه شد."
 
-#: .\cart\views.py:76
+#: .\views.py:76
 msgid "Product removed from your cart"
 msgstr "محصول از سبد خرید شما حذف شد."
 
-#: .\cart\views.py:78
+#: .\views.py:78
 msgid "This product is not in your cart"
 msgstr "این محصول در سبد خرید شما نیست."
 
-#: .\cart\views.py:92
+#: .\views.py:92
 msgid "All products successfully removed from your account cart"
 msgstr "همه محصولات با موفقیت از سبد خرید حساب شما حذف شدند."
 
-#: .\cart\views.py:94
+#: .\views.py:94
 msgid "Your account cart is already empty"
 msgstr "سبد خرید حساب کاربری شما از قبل خالی است."
 
-#: .\cart\views.py:99
+#: .\views.py:99
 msgid "All products successfully removed from your session cart"
 msgstr "همه محصولات با موفقیت از سبد خرید شما حذف شدند."
 
-#: .\cart\views.py:101
+#: .\views.py:101
 msgid "Your session cart is already empty"
 msgstr "سبد خرید شما از قبل خالی است."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 23:52+0330\n"
-"PO-Revision-Date: 2025-10-14 23:52+0330\n"
+"POT-Creation-Date: 2025-10-15 00:56+0330\n"
+"PO-Revision-Date: 2025-10-15 01:02+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,19 +20,21 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: .\forms.py:12
-#| msgid "full name"
 msgid "Full name"
 msgstr "نام و نام خانوادگی:"
 
 #: .\forms.py:13
-#| msgid "address"
 msgid "Email address"
 msgstr "آدرس:"
 
 #: .\forms.py:14
-#| msgid "send message"
 msgid "Message"
 msgstr "پیام"
+
+#: .\templates\pages\aboutus.html:3
+#| msgid "about mango"
+msgid "about us"
+msgstr "درباره ما"
 
 #: .\templates\pages\aboutus.html:8
 msgid "about mango"
@@ -117,6 +119,14 @@ msgstr "آدرس"
 #: .\templates\pages\contact.html:43
 msgid "iran"
 msgstr "ایران"
+
+#: .\views.py:26
+msgid "your message was sent successfully"
+msgstr "پیام شما با موفقیت ارسال شد✅"
+
+#: .\views.py:29
+msgid "please fill the fields correctlly"
+msgstr "لطفا فیلد ها را به درستی پر کنید✅"
 
 #~ msgid "email]"
 #~ msgstr "ایمیل:"

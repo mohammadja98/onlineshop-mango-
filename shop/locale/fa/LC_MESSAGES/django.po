@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 22:13+0330\n"
-"PO-Revision-Date: 2025-10-14 22:06+0330\n"
+"POT-Creation-Date: 2025-10-15 00:58+0330\n"
+"PO-Revision-Date: 2025-10-15 01:03+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,126 +19,135 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\shop\models.py:12
+#: .\models.py:12
 msgid "Category Image"
 msgstr "عکس دسته بندی"
 
-#: .\shop\models.py:38
+#: .\models.py:38
 msgid "Product Image"
 msgstr "تصویر محصول"
 
-#: .\shop\models.py:56
+#: .\models.py:56
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\shop\models.py:57
+#: .\models.py:57
 msgid "Bad"
 msgstr " بد"
 
-#: .\shop\models.py:58
+#: .\models.py:58
 msgid "Normal"
 msgstr "معمولی"
 
-#: .\shop\models.py:59
+#: .\models.py:59
 msgid "Good"
 msgstr "خوب"
 
-#: .\shop\models.py:60
+#: .\models.py:60
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\shop\models.py:64
+#: .\models.py:64
 msgid "comment author"
 msgstr "نویسنده"
 
-#: .\shop\models.py:65
+#: .\models.py:65
 msgid "comment text"
 msgstr "متن"
 
-#: .\shop\templates\products\category_detail.html:19
+#: .\templates\products\category_detail.html:19
 msgid "Browse products in this category"
 msgstr "محصولات این دسته را مرور کنید"
 
-#: .\shop\templates\products\category_detail.html:43
+#: .\templates\products\category_detail.html:43
 msgid "exist"
 msgstr "موجود"
 
-#: .\shop\templates\products\category_detail.html:47
+#: .\templates\products\category_detail.html:47
 msgid "non-existent"
 msgstr "ناموجود"
 
-#: .\shop\templates\products\category_detail.html:60
-#: .\shop\templates\products\product_detail.html:38
-#: .\shop\templates\products\product_detail.html:40
-#: .\shop\templates\products\product_detail.html:95
-#: .\shop\templates\products\product_list.html:26
+#: .\templates\products\category_detail.html:60
+#: .\templates\products\product_detail.html:38
+#: .\templates\products\product_detail.html:40
+#: .\templates\products\product_detail.html:95
+#: .\templates\products\product_list.html:26
 msgid "$"
 msgstr "تومان"
 
-#: .\shop\templates\products\category_detail.html:71
-#: .\shop\templates\products\product_detail.html:65
+#: .\templates\products\category_detail.html:71
+#: .\templates\products\product_detail.html:65
 msgid "add to cart"
 msgstr "افزودن به سبد خرید"
 
-#: .\shop\templates\products\category_detail.html:80
+#: .\templates\products\category_detail.html:80
 msgid "No products were found in this category."
 msgstr "هیچ محصولی در این دسته بندی یافت نشد"
 
-#: .\shop\templates\products\category_list.html:10
+#: .\templates\products\category_list.html:5
+#| msgid "Category"
+msgid "Categories"
+msgstr "دسته بندی ها"
+
+#: .\templates\products\category_list.html:10
 msgid "Category"
 msgstr "دسته بندی"
 
-#: .\shop\templates\products\category_list.html:37
+#: .\templates\products\category_list.html:37
 msgid "No categories available yet."
 msgstr "هنوز هیچ دسته بندی موجود نیست"
 
-#: .\shop\templates\products\product_detail.html:8
-msgid "shop Mango"
-msgstr "فروشگاه منگو"
-
-#: .\shop\templates\products\product_detail.html:14
+#: .\templates\products\product_detail.html:14
 msgid "Details of your selected product"
 msgstr "جزئیات محصول انتخابی شما"
 
-#: .\shop\templates\products\product_detail.html:74
+#: .\templates\products\product_detail.html:74
 msgid "product info"
 msgstr "مشخصات محصول"
 
-#: .\shop\templates\products\product_detail.html:76
+#: .\templates\products\product_detail.html:76
 msgid "category"
 msgstr "دسته بندی"
 
-#: .\shop\templates\products\product_detail.html:77
+#: .\templates\products\product_detail.html:77
 msgid "inventory"
 msgstr "موجودی"
 
-#: .\shop\templates\products\product_detail.html:78
+#: .\templates\products\product_detail.html:78
 msgid "product code"
 msgstr "کد محصول"
 
-#: .\shop\templates\products\product_detail.html:86
+#: .\templates\products\product_detail.html:86
 msgid "similar products"
 msgstr "محصولات مشابه"
 
-#: .\shop\templates\products\product_detail.html:97
-#: .\shop\templates\products\product_list.html:27
+#: .\templates\products\product_detail.html:97
+#: .\templates\products\product_list.html:27
 msgid "View"
 msgstr "مشاهده"
 
-#: .\shop\templates\products\product_detail.html:102
+#: .\templates\products\product_detail.html:102
 msgid "No similar products found"
 msgstr "محصولات مشابه پیدا نشد"
 
-#: .\shop\templates\products\product_list.html:13
-msgid "Our Products"
-msgstr "محصولات ما"
+#: .\templates\products\product_list.html:8
+#| msgid "Our Products"
+msgid "Products"
+msgstr "محصولات"
 
-#: .\shop\templates\products\product_list.html:14
+#: .\templates\products\product_list.html:13
+msgid "Our Products"
+msgstr "محصولات"
+
+#: .\templates\products\product_list.html:14
 msgid "Browse our fresh collection inspired by mango colors & minimal design"
 msgstr ""
 "مجموعه جدید ما را که با الهام از رنگ‌های انبه و طراحی مینیمالیستی ساخته شده "
 "است، مرور کنید."
 
-#: .\shop\templates\products\product_list.html:32
+#: .\templates\products\product_list.html:32
 msgid "No products available"
 msgstr "هیچ محصولی موجود نیست"
+
+#~ msgid "shop Mango"
+#~ msgstr "فروشگاه منگو"
