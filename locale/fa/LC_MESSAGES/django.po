@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 23:50+0330\n"
-"PO-Revision-Date: 2025-10-14 23:43+0330\n"
+"POT-Creation-Date: 2025-10-15 22:32+0330\n"
+"PO-Revision-Date: 2025-10-15 22:33+0330\n"
 "Last-Translator: mango mangoo <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,6 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\templates\404.html:4
+msgid "page not found"
+msgstr "صفحه مورد نظر یافت نشد "
+
+#: .\templates\404.html:10
+msgid "page not found!"
+msgstr "صفحه مورد نظر یافت نشد!"
+
+#: .\templates\404.html:12
+msgid ""
+"Unfortunately, the page you were looking for does not exist or has been "
+"deleted."
+msgstr "متاسفانه صفحه‌ای که دنبالش بودید وجود ندارد یا حذف شده است."
+
+#: .\templates\404.html:15
+#| msgid "Cancel and return to the home page"
+msgid "return to main page"
+msgstr "بازگشت به صفحه اصلی"
 
 #: .\templates\account\login.html:5 .\templates\account\login.html:23
 #: .\templates\account\signup.html:30 .\templates\topheader.html:61
@@ -97,19 +116,19 @@ msgstr "تماس با ما"
 msgid "Mango Store. All rights reserved."
 msgstr "فروشگاه منگو.تمام حقوق محفوظ است."
 
-#: .\templates\home.html:4
+#: .\templates\home.html:5
 msgid "Home"
 msgstr "خانه"
 
-#: .\templates\home.html:12 .\templates\home.html:16
+#: .\templates\home.html:14 .\templates\home.html:18
 msgid "Welcome to Mango Shop"
 msgstr "به فروشگاه منگو خوش آمدید"
 
-#: .\templates\home.html:21
+#: .\templates\home.html:23
 msgid "Experience a modern shopping journey with our shop."
 msgstr "با فروشگاه ما، خریدی مدرن و راحت را تجربه کنید."
 
-#: .\templates\home.html:26
+#: .\templates\home.html:28
 msgid "Shop Now"
 msgstr "خرید"
 
