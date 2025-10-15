@@ -1,7 +1,9 @@
 {% extends "_base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "Home" %}{% endblock %}
+
 
 {% block content %}
 <!-- Hero Section -->
@@ -17,7 +19,7 @@
             </h1>
         {% endif %}
 
-        <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90 leading-relaxed">
+        <p class="text-xl mb-10 max-w-3xl  font-semibold  mx-auto opacity-90 leading-relaxed">
             {% trans "Experience a modern shopping journey with our shop." %}
         </p>
 

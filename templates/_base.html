@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" >
+<html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %}Mango Shop{% endblock %}</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mango Shop{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/_base.css' %}"></head>
+<body class="bg-gradient-to-r from-yellow-100 to-green-100 text-gray-800 flex flex-col min-h-screen ">
+
 {% if messages %}
   <div id="messages-container" class="fixed top-4 right-4 space-y-2 z-50">
     {% for message in messages %}
@@ -38,11 +45,9 @@
 
 {% include "topheader.html" %}
 
-
 <main class="flex-grow">
-{% block content %}{% endblock %}
+  {% block content %}{% endblock %}
 </main>
-
 
 {% include "footer.html" %}
 
