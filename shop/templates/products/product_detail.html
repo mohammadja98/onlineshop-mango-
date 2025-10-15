@@ -1,33 +1,33 @@
 <!-- detail_view.html -->
 {% extends "_base.html" %}
-
 {% load i18n %}
 {% load humanize %}
 {% load persian_translation_tags %}
+{% load crispy_forms_tags %}
+{% load jalali_tags %}
 
-{% block title %}{{ product.name }} {% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-<section class="bg-gradient-to-r from-green-400 via-yellow-300 to-yellow-400  text-gray-900 py-16">
+<section class="bg-gradient-to-r from-green-400 via-yellow-300 to-yellow-400 text-gray-900 py-16">
   <div class="container mx-auto text-center">
     <h1 class="text-4xl font-bold mb-4">{{ product.name }}</h1>
     <p class="text-lg">{% trans "Details of your selected product" %}</p>
   </div>
 </section>
 
-<section class="container mx-auto px-6 py-16 grid gap-12 md:grid-cols-2 text-right">
+<section class="container  bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100  mx-auto px-6 py-16 grid gap-12 md:grid-cols-2 text-right">
   <!-- Product Image -->
-    <div class="flex justify-center items-center">
-      {% if product.image %}
-        <img 
-          src="{{ product.image.url }}"
-          alt="{{ product.name }}" 
-          class="rounded-3xl shadow-lg object-cover ml-[-100px]"
-          style="width: 400px; height: 400px;"
-        >
-      {% endif %}
-    </div>
-
+  <div class="flex justify-center items-center">
+    {% if product.image %}
+      <img 
+        src="{{ product.image.url }}"
+        alt="{{ product.name }}" 
+        class="rounded-3xl shadow-lg object-cover ml-[-100px]"
+        style="width: 400px; height: 400px;"
+      >
+    {% endif %}
+  </div>
 
   <!-- Product Details -->
   <div class="flex flex-col justify-center">
@@ -35,43 +35,35 @@
     <p class="text-gray-600 mb-6 leading-relaxed">{{ product.description|safe }}</p>
 
     <div class="flex flex-row-reverse items-center mb-6">
-      <span class="text-3xl font-extrabold text-yellow-600">{{ product.price|intcomma:False|translate_number }} {% trans "$" %}</span>
+      <span class="text-3xl font-extrabold text-yellow-600">
+        {{ product.price|intcomma:False|translate_number }} {% trans "$" %}
+      </span>
       {% if product.old_price %}
-      <span class="mr-4 line-through text-gray-400">{{ product.old_price|intcomma:False|translate_number }} {% trans "$" %}</span>
+        <span class="mr-4 line-through text-gray-400">
+          {{ product.old_price|intcomma:False|translate_number }} {% trans "$" %}
+        </span>
       {% endif %}
     </div>
 
-    <!-- Add to Cart Button -->
+    <!-- Add to Cart -->
     <div x-data="{ quantity: 1 }" class="flex flex-col gap-3 mt-6">
       <form method="post" action="{% url 'cart:cart_add' product.id %}" class="flex items-center gap-3">
         {% csrf_token %}
         <input type="hidden" name="quantity" :value="quantity">
 
-        <!-- Decrease Quantity -->
-        <button type="button"
-                @click="if (quantity > 1) quantity--"
-                class="h-10 w-10 flex items-center justify-center rounded-full border text-lg hover:bg-gray-100 select-none">−</button>
-
-        <!-- Quantity Display -->
+        <button type="button" @click="if (quantity > 1) quantity--" class="h-10 w-10 flex items-center justify-center rounded-full border text-lg hover:bg-gray-100">−</button>
         <span class="w-12 text-center font-medium text-lg" x-text="quantity"></span>
+        <button type="button" @click="quantity++" class="h-10 w-10 flex items-center justify-center rounded-full border text-lg hover:bg-gray-100">+</button>
 
-        <!-- Increase Quantity -->
-        <button type="button"
-                @click="quantity++"
-                class="h-10 w-10 flex items-center justify-center rounded-full border text-lg hover:bg-gray-100 select-none">+</button>
-
-        <!-- Add to Cart Button -->
-      <button type="submit" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-700 transition">
-        🛒 {% trans "add to cart" %}
-      </button>
+        <button type="submit" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-700 transition">
+          🛒 {% trans "add to cart" %}
+        </button>
       </form>
     </div>
 
-
-
-    <!-- Extra Info -->
+    <!-- Product Info -->
     <div class="mt-10 border-t pt-6">
-      <h3 class="text-lg font-semibold mb-2"> {% trans "product info" %}</h3>
+      <h3 class="text-lg font-semibold mb-2">{% trans "product info" %}</h3>
       <ul class="list-disc list-inside text-gray-600 space-y-1">
         <li>{% trans "category" %}: {{ product.category }}</li>
         <li>{% trans "inventory" %}: {{ product.stock }}</li>
@@ -81,25 +73,80 @@
   </div>
 </section>
 
+<!-- 🟡 Comments Section -->
+<section class="container  bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 mx-auto px-6 py-16 text-right border-t">
+  <h3 class="text-2xl font-bold text-gray-800 mb-8">
+    {% trans "Comments" %} ({{ product.comments.all|length }})
+  </h3>
+
+  <!-- List of comments -->
+  <div class="space-y-8">
+    {% for comment in product.comments.all %}
+      {% if comment.active %}
+        <div class="bg-white shadow-md rounded-xl p-6">
+          <div class="flex items-start space-x-4">
+            {% comment %} <img src="{% static 'img/others/comment-1.jpg' %}" alt="avatar" class="w-16 h-16 rounded-full"> {% endcomment %}
+            <div class="flex-1 text-right">
+              <div class="flex justify-between items-center mb-1">
+                <strong class="text-gray-800">{{ comment.author.username }}</strong>
+                <span class="text-sm text-gray-500">
+                  {{ comment.datetime_created|to_jalali:"%Y/%m/%d"|translate_number  }}
+                </span>
+              </div>
+              <div class="flex items-center mb-2">
+                ⭐ {{ comment.stars }}/5
+              </div>
+              <p class="text-gray-700 leading-relaxed">{{ comment.body }}</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% empty %}
+      <p class="text-gray-500 text-center">{% trans "No comments yet." %}</p>
+    {% endfor %}
+  </div>
+
+  <!-- Comment Form -->
+  <div class="mt-12">
+    {% if user.is_authenticated %}
+      <h4 class="text-xl font-semibold mb-4">{% trans "Write your comment" %}</h4>
+      <form method="post" action="{% url 'shop:comment_create' product.id %}" class="space-y-4   bg-gradient-to-r from-yellow-100 via-yellow-50 to-green-100 p-6 rounded-xl shadow">
+        {% csrf_token %}
+        {{ comment_form|crispy }}
+        <button type="submit" class="bg-green-500 hover:bg-green-600 bg-gradient-to-r from-green-400 to-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold">
+          {% trans "Submit" %}
+        </button>
+      </form>
+    {% else %}
+      <p class="text-gray-600">
+        {% trans "To submit your comment please" %}
+        <a href="{% url 'account_login' %}" class="text-yellow-600 hover:underline">{% trans "Login" %}</a>
+      </p>
+    {% endif %}
+  </div>
+</section>
+
 <!-- Related Products -->
 <section class="container mx-auto px-6 py-12 text-right">
-  <h3 class="text-2xl font-bold text-gray-800 mb-8">{% trans "similar products" %} </h3>
+  <h3 class="text-2xl font-bold text-gray-800 mb-8">{% trans "similar products" %}</h3>
   <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     {% for related in related_products %}
-    <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
-      {% if related.image %}
-        <img src="{{ related.image.url }}" alt="{{ related.name }}" class="h-40 w-full object-cover">
-      {% endif %}
-      <div class="p-4">
-        <h4 class="text-lg font-semibold mb-2">{{ related.name }}</h4>
-        <p class="text-gray-600 text-sm mb-3">{{ related.price|intcomma:False|translate_number }} {% trans "$" %}</p>
-        <a href="{% url 'product_detail' related.id %}" class="text-yellow-600 font-semibold hover:underline">
-          {% trans "View" %} →
-        </a>
+      <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
+        {% if related.image %}
+          <img src="{{ related.image.url }}" alt="{{ related.name }}" class="h-40 w-full object-cover">
+        {% endif %}
+        <div class="p-4">
+          <h4 class="text-lg font-semibold mb-2">{{ related.name }}</h4>
+          <p class="text-gray-600 text-sm mb-3">
+            {{ related.price|intcomma:False|translate_number }} {% trans "$" %}
+          </p>
+          <a href="{% url 'product_detail' related.id %}" class="text-yellow-600 font-semibold hover:underline">
+            {% trans "View" %} →
+          </a>
+        </div>
       </div>
-    </div>
     {% empty %}
-    <p class="col-span-full text-center text-gray-500">{% trans "No similar products found" %}.</p>
+      <p class="col-span-full text-center text-gray-500">{% trans "No similar products found" %}.</p>
     {% endfor %}
   </div>
 </section>

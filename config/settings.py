@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'ckeditor',
     'rosetta',
+    'django_jalali',
+    'jalali_date',
+
 
     'accounts',
     'shop',
