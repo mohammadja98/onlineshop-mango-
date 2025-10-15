@@ -3,14 +3,16 @@
 from pathlib import Path
 import os
 import dj_database_url  # Import dj_database_url
-
+import environ
 # BASE_DIR and environment variable setup remains the same
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost', 'onlineshop-mango.onrender.com').split(',')
-
+ALLOWED_HOSTS = os.environ.get(
+    'ALLOWED_HOSTS', 
+    '127.0.0.1,localhost,onlineshop-mango.onrender.com' # ترکیب همه آدرس‌ها در یک رشته
+).split(',')
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
