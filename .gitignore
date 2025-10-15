@@ -1,2 +1,10 @@
-.vscode
+Pipfile
+Pipfile.lock
+.dockerignore
+.env
 venv
+.idea
+__pycache__
+New folder
+.gitignore
+staticfiles
